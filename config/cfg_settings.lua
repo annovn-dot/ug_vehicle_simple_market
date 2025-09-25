@@ -1,5 +1,6 @@
 Config                        = {}
 
+Config.SpawnDebug             = false
 Config.ZonesDebug             = false
 
 -- Framework: 'esx' | 'qb' | 'qbox' | 'auto'
@@ -49,7 +50,7 @@ Config.BankOnly               = true -- always bank
 -- Delivery
 Config.DeliverImmediate       = true -- If true: SPAWN at zone spawn
 Config.SpawnCheckRadius       = 2.0  -- when DeliverImmediate, ensure no vehicles within this radius
-Config.SpawnDebug             = false
 Config.DeliveryMessagePrivate = 'You bought a vehicle — delivered to your private garage.'
 Config.DeliveryMessageOrg     = 'You bought a service vehicle — delivered to your organization garage.'
 Config.ContractSigningTime    = 15000
+
