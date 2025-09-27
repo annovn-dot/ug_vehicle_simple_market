@@ -122,6 +122,7 @@ local function buildOptions(idx, v)
             name = 'ug_buy_org_' .. idx,
             label = Lang.target_buy_org .. priceStr,
             icon = 'fa-solid fa-building',
+            distance = 1.5,
             onSelect = function()
                 startPurchase(idx, 'org', Lang.confirm_title_org, Lang.confirm_msg_org)
             end
@@ -133,6 +134,7 @@ local function buildOptions(idx, v)
             name = 'ug_buy_priv_' .. idx,
             label = Lang.target_buy_priv .. priceStr,
             icon = 'fa-solid fa-car',
+            distance = 1.5,
             onSelect = function()
                 if v.allowOrg then
                     startPurchase(idx, 'priv', Lang.confirm_title_priv, Lang.confirm_msg_priv)
@@ -335,4 +337,5 @@ RegisterNetEvent('ug_vehicle_shop:notify', function(level, msg)
         lib.notify({ title = 'Vehicle Shop', description = msg, type = 'error' })
     end
 end)
+
 
