@@ -65,6 +65,11 @@ local function protectDisplayVehicle(veh)
     SetVehicleTyresCanBurst(veh, false)
     SetVehicleExplodesOnHighExplosionDamage(veh, false)
     SetVehicleDoorsLockedForAllPlayers(veh, true)
+
+    local es = Entity(veh)
+    if es and es.state then
+          es.state:set('ug_market', true, true)
+    end
 end
 
 local function isSpawnFree(x, y, z, r)
@@ -330,3 +335,4 @@ RegisterNetEvent('ug_vehicle_shop:notify', function(level, msg)
         lib.notify({ title = 'Vehicle Shop', description = msg, type = 'error' })
     end
 end)
+
