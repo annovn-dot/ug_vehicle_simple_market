@@ -3,6 +3,8 @@ Simple FiveM script that handles basic vehicle sale, showcased in the world, on 
 
 Check our store and our other scripts. All you server need vehicle related in one place! Saves you some headackes :)
 
+CFX post: https://forum.cfx.re/t/esx-qb-qbox-simple-vehicle-market/5366388
+
 Web store: https://the-underground.tebex.io/
 
 Discord invite: https://discord.gg/CkyCAMFUFU
