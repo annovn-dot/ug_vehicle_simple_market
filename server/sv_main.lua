@@ -205,3 +205,24 @@ RegisterNetEvent('ug_vehicle_shop:buy', function(index, mode)
     end
   end
 end)
+
+RegisterNetEvent('ug_vehicle_shop:setStoredState', function(plate, stored)
+  local src = source
+  local owner = FW.GetIdentifier(src)
+  if not owner then return end
+
+  plate = tostring(plate or ''):gsub('^%s*(.-)%s*$', '%1')
+  stored = tonumber(stored)
+
+  if plate == '' or (stored ~= 0 and stored ~= 1) then return end
+
+  local sql = ('UPDATE %s SET %s = ? WHERE %s = ? AND %s = ?')
+      :format(
+        Config.DB.VehiclesTable,
+        Config.DB.StoredColumn,
+        Config.DB.PlateColumn,
+        Config.DB.OwnerColumn
+      )
+
+  MySQL.update.await(sql, { stored, plate, owner })
+end)
