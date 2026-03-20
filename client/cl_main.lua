@@ -68,7 +68,7 @@ local function protectDisplayVehicle(veh)
 
     local es = Entity(veh)
     if es and es.state then
-          es.state:set('ug_market', true, true)
+        es.state:set('ug_market', true, true)
     end
 end
 
@@ -325,8 +325,11 @@ RegisterNetEvent('ug_vehicle_shop:deliver', function(model, plate, spawn, mode)
     end
 
     local veh = CreateVehicle(hash, x, y, z, h, true, false)
-    SetVehicleOnGroundProperly(veh)
-    SetVehicleNumberPlateText(veh, plate)
+    if veh and veh ~= 0 then
+        SetVehicleOnGroundProperly(veh)
+        SetVehicleNumberPlateText(veh, plate)
+        TriggerServerEvent('ug_vehicle_shop:setStoredState', plate, 0)
+    end
     SetModelAsNoLongerNeeded(hash)
 end)
 
@@ -337,5 +340,3 @@ RegisterNetEvent('ug_vehicle_shop:notify', function(level, msg)
         lib.notify({ title = 'Vehicle Shop', description = msg, type = 'error' })
     end
 end)
-
-
